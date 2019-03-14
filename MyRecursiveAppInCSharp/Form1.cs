@@ -12,6 +12,23 @@ namespace MyRecursiveAppInCSharp
 {
     public partial class Form1 : Form
     {
+
+        private int facto(int f)
+        {
+            if(f == 1)
+            {
+                return 1;
+            }
+            else if (f < 1)
+            {
+                return -1;
+            }
+            else
+            {
+                return f * facto(f-1);
+            }
+        }
+
         public Form1()
         {
             InitializeComponent();
@@ -25,6 +42,15 @@ namespace MyRecursiveAppInCSharp
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_send_Click(object sender, EventArgs e)
+        {
+            if(int.TryParse(txtInput.Text, out int f) == false)
+            {
+                MessageBox.Show("Indiquez un chiffre svp");
+            }
+            label1.Text = facto(f) + "";
         }
     }
 }
