@@ -15,11 +15,11 @@ namespace MyRecursiveAppInCSharp
 
         private int facto(int f)
         {
-            if(f == 1)
+            if(f == 0)
             {
                 return 1;
             }
-            else if (f < 1)
+            else if (f < 0)
             {
                 return -1;
             }
@@ -50,7 +50,19 @@ namespace MyRecursiveAppInCSharp
             {
                 MessageBox.Show("Indiquez un chiffre svp");
             }
-            label1.Text = facto(f) + "";
+            else
+            {
+                int resultat = facto(f);
+                if (resultat == -1) {
+                    label1.Text = "Impossible";
+                }
+                else
+                {
+                    label1.Text = facto(f) + "";
+                }
+
+            }
+            
         }
     }
 }
